@@ -12,11 +12,12 @@ public class NumberGame {
         String checkResponse;
         int numOfGuesses = 0;
         ArrayList<Integer> guesses = new ArrayList<>();
+        Scanner scanObj = new Scanner(System.in);
         while (!isNumFound) {
             System.out.println("Guess the number between 1 and 100");
 
-            Scanner scanObj = new Scanner(System.in);
-            userInput = scanObj.nextInt();
+            if(scanObj.hasNextInt()){
+                userInput = scanObj.nextInt();
 
 
                 if (!guesses.contains(userInput)) {
@@ -34,9 +35,10 @@ public class NumberGame {
                 } else {
                     System.out.println("You have already guessed " + userInput);
                 }
-//            }else{
-//                System.out.println("That is not a number");
-//            }
+            }else {
+                System.out.println("That is not a number");
+            }
+
         }
 
     }
